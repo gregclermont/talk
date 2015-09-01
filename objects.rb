@@ -1,23 +1,51 @@
-constants = Object.constants
-  .map { |name| Object.const_get(name) }
-  .select { |object| object.respond_to?(:ancestors) }
-
-ancestors = {}
-
-constants.each do |object|
-  ancestors[object] = object.ancestors - [object]
+def list_objects
+  Object.constants.map { |name| Object.const_get(name) }
 end
 
-relations = []
+def try(object, method, default = nil)
+  object.respond_to?(method) ? object.send(method) : default
+end
 
-ancestors.each do |object, object_ancestors|
-  ancestors_ancestors = object_ancestors.flat_map { |ancestor| ancestors[ancestor] }
-  object_ancestors -= ancestors_ancestors
-  object_ancestors.each do |ancestor|
-    relations.push [object, ancestor]
+def describe(object)
+  desc = {
+    name: try(object, :name),
+    class: object.class.name,
+    superclass: try(object, :superclass),
+    included_modules: try(object, :included_modules, [])
+  }
+
+  desc[:included_modules] -= object.superclass.included_modules if desc[:superclass]
+
+  desc
+end
+
+def color(name)
+  {
+    'Module' => 'blue',
+    'Class' => 'black'
+  }[name] || 'green'
+end
+
+def graph(objects)
+  objects = objects.map { |object| describe object }
+
+  puts 'digraph G {'
+
+  objects.select { |o| %w(Module Class).include? o[:class] }.each do |o|
+    puts %(  "#{o[:name]}" [color=#{color o[:class]}])
   end
+
+  objects.select { |o| o[:superclass] }.each do |o|
+    puts %(  "#{o[:superclass]}" -> "#{o[:name]}" [color=#{color 'Class'}])
+  end
+
+  objects.each do |o|
+    o[:included_modules].each do |m|
+      puts %(  "#{m}" -> "#{o[:name]}" [color=#{color 'Module'}])
+    end
+  end
+
+  puts '}'
 end
 
-puts 'digraph G {'
-relations.each { |object, ancestor| puts %(  "#{ancestor}" -> "#{object}") }
-puts '}'
+graph list_objects

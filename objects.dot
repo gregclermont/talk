@@ -1,91 +1,181 @@
 digraph G {
-  "Kernel" -> "Object"
-  "BasicObject" -> "Object"
-  "Object" -> "Module"
-  "Module" -> "Class"
-  "Object" -> "NilClass"
-  "Object" -> "Data"
-  "Object" -> "TrueClass"
-  "Object" -> "FalseClass"
-  "Object" -> "Encoding"
-  "Comparable" -> "String"
-  "Object" -> "String"
-  "Comparable" -> "Symbol"
-  "Object" -> "Symbol"
-  "Object" -> "Exception"
-  "Exception" -> "SystemExit"
-  "Exception" -> "SignalException"
-  "SignalException" -> "Interrupt"
-  "Exception" -> "StandardError"
-  "StandardError" -> "TypeError"
-  "StandardError" -> "ArgumentError"
-  "StandardError" -> "IndexError"
-  "IndexError" -> "KeyError"
-  "StandardError" -> "RangeError"
-  "Exception" -> "ScriptError"
-  "ScriptError" -> "SyntaxError"
-  "ScriptError" -> "LoadError"
-  "ScriptError" -> "NotImplementedError"
-  "StandardError" -> "NameError"
-  "NameError" -> "NoMethodError"
-  "StandardError" -> "RuntimeError"
-  "Exception" -> "SecurityError"
-  "Exception" -> "NoMemoryError"
-  "StandardError" -> "EncodingError"
-  "StandardError" -> "SystemCallError"
-  "StandardError" -> "ZeroDivisionError"
-  "RangeError" -> "FloatDomainError"
-  "Comparable" -> "Numeric"
-  "Object" -> "Numeric"
-  "Numeric" -> "Integer"
-  "Integer" -> "Fixnum"
-  "Numeric" -> "Float"
-  "Integer" -> "Bignum"
-  "Enumerable" -> "Array"
-  "Object" -> "Array"
-  "Enumerable" -> "Hash"
-  "Object" -> "Hash"
-  "Enumerable" -> "Struct"
-  "Object" -> "Struct"
-  "StandardError" -> "RegexpError"
-  "Object" -> "Regexp"
-  "Object" -> "MatchData"
-  "Enumerable" -> "Range"
-  "Object" -> "Range"
-  "StandardError" -> "IOError"
-  "IOError" -> "EOFError"
-  "File::Constants" -> "IO"
-  "Enumerable" -> "IO"
-  "Object" -> "IO"
-  "IO" -> "File"
-  "Enumerable" -> "Dir"
-  "Object" -> "Dir"
-  "Comparable" -> "Time"
-  "Object" -> "Time"
-  "Object" -> "Random"
-  "Object" -> "Proc"
-  "StandardError" -> "LocalJumpError"
-  "Exception" -> "SystemStackError"
-  "Object" -> "Method"
-  "Object" -> "UnboundMethod"
-  "Object" -> "Binding"
-  "Enumerable" -> "Enumerator"
-  "Object" -> "Enumerator"
-  "IndexError" -> "StopIteration"
-  "Object" -> "RubyVM"
-  "Object" -> "Thread"
-  "Object" -> "ThreadGroup"
-  "Object" -> "Mutex"
-  "StandardError" -> "ThreadError"
-  "Object" -> "Fiber"
-  "StandardError" -> "FiberError"
-  "Numeric" -> "Rational"
-  "Numeric" -> "Complex"
-  "Object" -> "TracePoint"
-  "Object" -> "Date"
-  "Object" -> "ConditionVariable"
-  "Object" -> "Queue"
-  "Queue" -> "SizedQueue"
-  "MonitorMixin" -> "Monitor"
-  "Object" -> "Monitor"
+  "Object" [color=black]
+  "Module" [color=black]
+  "Class" [color=black]
+  "BasicObject" [color=black]
+  "Kernel" [color=blue]
+  "NilClass" [color=black]
+  "Data" [color=black]
+  "TrueClass" [color=black]
+  "FalseClass" [color=black]
+  "Encoding" [color=black]
+  "Comparable" [color=blue]
+  "Enumerable" [color=blue]
+  "String" [color=black]
+  "Symbol" [color=black]
+  "Exception" [color=black]
+  "SystemExit" [color=black]
+  "SignalException" [color=black]
+  "Interrupt" [color=black]
+  "StandardError" [color=black]
+  "TypeError" [color=black]
+  "ArgumentError" [color=black]
+  "IndexError" [color=black]
+  "KeyError" [color=black]
+  "RangeError" [color=black]
+  "ScriptError" [color=black]
+  "SyntaxError" [color=black]
+  "LoadError" [color=black]
+  "NotImplementedError" [color=black]
+  "NameError" [color=black]
+  "NoMethodError" [color=black]
+  "RuntimeError" [color=black]
+  "SecurityError" [color=black]
+  "NoMemoryError" [color=black]
+  "EncodingError" [color=black]
+  "SystemCallError" [color=black]
+  "Errno" [color=blue]
+  "UncaughtThrowError" [color=black]
+  "ZeroDivisionError" [color=black]
+  "FloatDomainError" [color=black]
+  "Numeric" [color=black]
+  "Integer" [color=black]
+  "Fixnum" [color=black]
+  "Float" [color=black]
+  "Bignum" [color=black]
+  "Array" [color=black]
+  "Hash" [color=black]
+  "Struct" [color=black]
+  "RegexpError" [color=black]
+  "Regexp" [color=black]
+  "MatchData" [color=black]
+  "Marshal" [color=blue]
+  "Range" [color=black]
+  "IOError" [color=black]
+  "EOFError" [color=black]
+  "IO" [color=black]
+  "FileTest" [color=blue]
+  "File" [color=black]
+  "Dir" [color=black]
+  "Time" [color=black]
+  "Random" [color=black]
+  "Signal" [color=blue]
+  "Proc" [color=black]
+  "LocalJumpError" [color=black]
+  "SystemStackError" [color=black]
+  "Method" [color=black]
+  "UnboundMethod" [color=black]
+  "Binding" [color=black]
+  "Math" [color=blue]
+  "GC" [color=blue]
+  "ObjectSpace" [color=blue]
+  "Enumerator" [color=black]
+  "StopIteration" [color=black]
+  "RubyVM" [color=black]
+  "Thread" [color=black]
+  "ThreadGroup" [color=black]
+  "Mutex" [color=black]
+  "ThreadError" [color=black]
+  "Process" [color=blue]
+  "Fiber" [color=black]
+  "FiberError" [color=black]
+  "Rational" [color=black]
+  "Complex" [color=black]
+  "TracePoint" [color=black]
+  "Gem" [color=blue]
+  "RbConfig" [color=blue]
+  "Thread::ConditionVariable" [color=black]
+  "Thread::Queue" [color=black]
+  "Thread::SizedQueue" [color=black]
+  "MonitorMixin" [color=blue]
+  "Monitor" [color=black]
+  "BasicObject" -> "Object" [color=black]
+  "Object" -> "Module" [color=black]
+  "Module" -> "Class" [color=black]
+  "Object" -> "NilClass" [color=black]
+  "Object" -> "Data" [color=black]
+  "Object" -> "TrueClass" [color=black]
+  "Object" -> "FalseClass" [color=black]
+  "Object" -> "Encoding" [color=black]
+  "Object" -> "String" [color=black]
+  "Object" -> "Symbol" [color=black]
+  "Object" -> "Exception" [color=black]
+  "Exception" -> "SystemExit" [color=black]
+  "Exception" -> "SignalException" [color=black]
+  "SignalException" -> "Interrupt" [color=black]
+  "Exception" -> "StandardError" [color=black]
+  "StandardError" -> "TypeError" [color=black]
+  "StandardError" -> "ArgumentError" [color=black]
+  "StandardError" -> "IndexError" [color=black]
+  "IndexError" -> "KeyError" [color=black]
+  "StandardError" -> "RangeError" [color=black]
+  "Exception" -> "ScriptError" [color=black]
+  "ScriptError" -> "SyntaxError" [color=black]
+  "ScriptError" -> "LoadError" [color=black]
+  "ScriptError" -> "NotImplementedError" [color=black]
+  "StandardError" -> "NameError" [color=black]
+  "NameError" -> "NoMethodError" [color=black]
+  "StandardError" -> "RuntimeError" [color=black]
+  "Exception" -> "SecurityError" [color=black]
+  "Exception" -> "NoMemoryError" [color=black]
+  "StandardError" -> "EncodingError" [color=black]
+  "StandardError" -> "SystemCallError" [color=black]
+  "ArgumentError" -> "UncaughtThrowError" [color=black]
+  "StandardError" -> "ZeroDivisionError" [color=black]
+  "RangeError" -> "FloatDomainError" [color=black]
+  "Object" -> "Numeric" [color=black]
+  "Numeric" -> "Integer" [color=black]
+  "Integer" -> "Fixnum" [color=black]
+  "Numeric" -> "Float" [color=black]
+  "Integer" -> "Bignum" [color=black]
+  "Object" -> "Array" [color=black]
+  "Object" -> "Hash" [color=black]
+  "Object" -> "Struct" [color=black]
+  "StandardError" -> "RegexpError" [color=black]
+  "Object" -> "Regexp" [color=black]
+  "Object" -> "MatchData" [color=black]
+  "Object" -> "Range" [color=black]
+  "StandardError" -> "IOError" [color=black]
+  "IOError" -> "EOFError" [color=black]
+  "Object" -> "IO" [color=black]
+  "IO" -> "File" [color=black]
+  "Object" -> "Dir" [color=black]
+  "Object" -> "Time" [color=black]
+  "Object" -> "Random" [color=black]
+  "Object" -> "Proc" [color=black]
+  "StandardError" -> "LocalJumpError" [color=black]
+  "Exception" -> "SystemStackError" [color=black]
+  "Object" -> "Method" [color=black]
+  "Object" -> "UnboundMethod" [color=black]
+  "Object" -> "Binding" [color=black]
+  "Object" -> "Enumerator" [color=black]
+  "IndexError" -> "StopIteration" [color=black]
+  "Object" -> "RubyVM" [color=black]
+  "Object" -> "Thread" [color=black]
+  "Object" -> "ThreadGroup" [color=black]
+  "Object" -> "Mutex" [color=black]
+  "StandardError" -> "ThreadError" [color=black]
+  "Object" -> "Fiber" [color=black]
+  "StandardError" -> "FiberError" [color=black]
+  "Numeric" -> "Rational" [color=black]
+  "Numeric" -> "Complex" [color=black]
+  "Object" -> "TracePoint" [color=black]
+  "Object" -> "Thread::ConditionVariable" [color=black]
+  "Object" -> "Thread::Queue" [color=black]
+  "Thread::Queue" -> "Thread::SizedQueue" [color=black]
+  "Object" -> "Monitor" [color=black]
+  "Kernel" -> "Object" [color=blue]
+  "Comparable" -> "String" [color=blue]
+  "Comparable" -> "Symbol" [color=blue]
+  "Comparable" -> "Numeric" [color=blue]
+  "Enumerable" -> "Array" [color=blue]
+  "Enumerable" -> "Hash" [color=blue]
+  "Enumerable" -> "Struct" [color=blue]
+  "Enumerable" -> "Range" [color=blue]
+  "File::Constants" -> "IO" [color=blue]
+  "Enumerable" -> "IO" [color=blue]
+  "Enumerable" -> "Dir" [color=blue]
+  "Comparable" -> "Time" [color=blue]
+  "Enumerable" -> "Enumerator" [color=blue]
+  "MonitorMixin" -> "Monitor" [color=blue]
 }

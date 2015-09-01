@@ -1,4 +1,5 @@
 AllCops:
+  Disabled: true
   DisplayCopNames: true
 Style/MultilineOperationIndentation:
   EnforcedStyle: indented
